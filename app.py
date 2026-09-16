@@ -21,5 +21,16 @@ def submit():
     return jsonify(status="ok", message="Данные сохранены")
 
 
+@app.route("/data", methods=["GET"])
+def get_data():
+    try:
+        with open(DATA_FILE, "r", encoding="utf-8") as f:
+            content = f.read()
+    except FileNotFoundError:
+        content = ""
+
+    return jsonify(status="ok", content=content)
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
