@@ -4,7 +4,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-DATA_FILE = "data.txt"
+DATA_FILE = "/app/data/data.txt"
 
 
 @app.route("/submit", methods=["POST"])
